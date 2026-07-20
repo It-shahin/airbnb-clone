@@ -19,7 +19,7 @@ const UserMenu = () => {
                     <div
                         className="hidden md:block text-sm font-semibold py-3 px-4 rounded-b-full hover:bg-neutral-100 transition cursor-pointer"
                     >
-                        Airbnb your Home
+                        Book Your Stay
                     </div>
                     <div
                         onClick={toggleOpen}

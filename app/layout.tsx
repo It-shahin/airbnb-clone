@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
+import ClientOnly from "@/components/ClientOnly";
+import Modal from "@/components/modals/Modal";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -25,7 +27,10 @@ export default function RootLayout({
       className={`${nunito.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
+        <ClientOnly>
+          <Modal/>
+          <Navbar />
+        </ClientOnly>
         {children}
       </body>
     </html>
