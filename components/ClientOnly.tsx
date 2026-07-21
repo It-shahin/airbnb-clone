@@ -1,12 +1,22 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { useSyncExternalStore } from 'react';
 
 interface ClientOnlyProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const ClientOnly = ({ children }: ClientOnlyProps) => {
+const ClientOnly: React.FC<ClientOnlyProps> = ({ children }) => {
+  const hasMounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+
+  if (!hasMounted) {
+    return null;
+  }
+
   return <>{children}</>;
 };
 
