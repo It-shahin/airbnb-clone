@@ -7,6 +7,7 @@ import RegisterModal from '@/components/modals/RegisterModal';
 import ToasterProvider from './providers/ToastProvider';
 import LoginModal from '@/components/modals/LoginModal';
 import getCurrentUser from './actions/getCurrentUser';
+import RentModal from '@/components/modals/RentModal';
 
 const nunito = Nunito({
   variable: '--font-nunito',
@@ -23,7 +24,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const currentUser = await getCurrentUser();
+  const currentUser = (await getCurrentUser());
 
 
   return (
@@ -36,6 +37,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal/>
+          <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         {children}
