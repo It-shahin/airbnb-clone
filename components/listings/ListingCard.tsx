@@ -13,7 +13,7 @@ interface ListingCardProps  {
     data: SafeListing;
     reservation?: SafeReservations;
     onAction?: (id: string) => void;
-    actionId: string;
+    actionId?: string;
     disabled?: boolean;
     actionLabel?: string;
     currentUser?: SafeUser | null;
