@@ -12,6 +12,14 @@ interface HomeProps {
 }
 
 export default async function Home({ searchParams }: HomeProps) {
+  if (!process.env.DATABASE_URL) {
+    return (
+      <main className="mx-auto max-w-xl px-6 pt-40 text-center">
+        <h1 className="text-3xl font-semibold">We're getting things ready</h1>
+        <p className="mt-4 text-neutral-500">Property listings will be available once this workspace is set up. Please check back soon.</p>
+      </main>
+    );
+  }
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
